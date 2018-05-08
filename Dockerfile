@@ -137,3 +137,10 @@ RUN MPLBACKEND=Agg python -c "import matplotlib.pyplot"
 WORKDIR /home
 ENV MAVEN_OPTS="-Xmx512m"
 
+ARG START_SCRIPT=http://resources.prod.factual.com/services/jupyter/scripts/jupyterbox.sh
+ENV START_SCRIPT=$START_SCRIPT
+
+ENV KEYTAB_FILE=/etc/keytab/.hdfs.keytab
+
+ENV MARATHON_APP_LABEL_OWNER=${USER}
+ENV KEYTAB_PRINCIPAL=${USER}@FACTUAL.COM
